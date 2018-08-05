@@ -1,0 +1,50 @@
+name:                expiet
+version:             0.1.0.0
+github:              "thorntheletter/expiet"
+license:             BSD3
+author:              "Josie Kachelmeier"
+maintainer:          "thorntheletter@gmail.com"
+copyright:           "(c) 2018 Josie Kachelmeier"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Compilers/Interpreters
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/thorntheletter/expiet#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- JuicyPixels
+- array
+
+library:
+  source-dirs: src
+
+executables:
+  expiet-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - expiet
+
+tests:
+  expiet-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - expiet
