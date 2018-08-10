@@ -1,16 +1,18 @@
 module Main where
 
 import System.Environment
+import Data.Array
 
 import Image
+import Flood
 
-import Data.Array
 
 main :: IO ()
 main = do
     args <- getArgs
     arr <- parseFile Nothing (head args)
-    printArr arr
+    (blarr, nblocks) <- return (floodFillAll arr)
+    printArr blarr
 
 -- not fancy butt it works well enough
 printArr :: Array (Int, Int) Int -> IO ()
