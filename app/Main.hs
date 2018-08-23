@@ -11,8 +11,9 @@ main :: IO ()
 main = do
     args <- getArgs
     arr <- parseFile Nothing (head args)
-    (blarr, nblocks) <- return (floodFillAll arr)
+    (blarr, blocks) <- return (floodFillAll arr)
     printArr blarr
+    print blocks
 
 -- not fancy butt it works well enough
 printArr :: Array (Int, Int) Int -> IO ()
